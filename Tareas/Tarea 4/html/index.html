@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <title>Cliente API Personas</title>
+  <style>
+    body { font-family: system-ui, sans-serif; max-width: 900px; margin: 2rem auto; }
+    input, button { padding: .5rem; margin: .25rem 0; }
+    pre { background: #111; color: #eee; padding: 1rem; border-radius: 8px; overflow:auto; }
+  </style>
+</head>
+<body>
+  <h1>Cliente REST - Agenda API</h1>
+
+  <section>
+    <h2>1️⃣ Login</h2>
+    <input id="email" value="admin@example.com" placeholder="Email">
+    <input id="password" value="password" placeholder="Contraseña" type="password">
+    <button onclick="login()">Ingresar</button>
+    <pre id="tokenBox"></pre>
+  </section>
+
+  <section>
+    <h2>2️⃣ Personas</h2>
+    <button onclick="listar()">Listar</button>
+
+    <h3>Crear persona</h3>
+    <input id="nombres" placeholder="Nombres">
+    <input id="apellidos" placeholder="Apellidos">
+    <input id="ci" placeholder="CI">
+    <input id="direccion" placeholder="Direccion">
+    <input id="telefono" placeholder="Telefono">
+    <input id="correo" placeholder="Email">
+    <button onclick="crear()">Crear</button>
+
+    <h3>Actualizar persona</h3>
+    <input id="updId" placeholder="ID">
+    <input id="updNombre" placeholder="Nuevo nombre">
+    <button onclick="actualizar()">Actualizar</button>
+
+    <h3>Eliminar persona</h3>
+    <input id="delId" placeholder="ID">
+    <button onclick="eliminar()">Eliminar</button>
+  </section>
+
+  <h2>3️⃣ Resultado</h2>
+  <pre id="out"></pre>
+
+<script>
+const BASE = "http://127.0.0.1:8000/api";
+let TOKEN = "";
+
+function setOut(obj){ document.getElementById('out').textContent = JSON.stringify(obj, null, 2); }
+function setToken(t){ TOKEN = t; document.getElementById('tokenBox').textContent = t; }
+
+async function login(){
+  const email = document.getElementById('email').value;
+  const password = document.getElementById('password').value;
+  const r = await fetch(`${BASE}/login`, {
+    method: 'POST',
+    headers: { 'Content-Type':'application/json', 'Accept':'application/json' },
+    body: JSON.stringify({ email, password })
+  });
+  const data = await r.json();
+  setOut(data);
+  if (data.token) setToken(data.token);
+}
+
+function authHeaders(){
+  return { 'Authorization': `Bearer ${TOKEN}`, 'Accept':'application/json', 'Content-Type':'application/json' };
+}
+
+async function listar(){
+  const r = await fetch(`${BASE}/personas`, { headers: authHeaders() });
+  setOut(await r.json());
+}
+
+async function crear(){
+  const body = {
+    nombres: document.getElementById('nombres').value,
+    apellidos: document.getElementById('apellidos').value,
+    ci: document.getElementById('ci').value,
+    direccion: document.getElementById('direccion').value,
+    telefono: document.getElementById('telefono').value,
+    email: document.getElementById('correo').value
+
+  };
+  const r = await fetch(`${BASE}/personas`, { method:'POST', headers: authHeaders(), body: JSON.stringify(body) });
+  setOut(await r.json());
+}
+
+async function actualizar(){
+  const id = document.getElementById('updId').value;
+  const body = { nombres: document.getElementById('updNombre').value };
+  const r = await fetch(`${BASE}/personas/${id}`, { method:'PUT', headers: authHeaders(), body: JSON.stringify(body) });
+  setOut(await r.json());
+}
+
+async function eliminar(){
+  const id = document.getElementById('delId').value;
+  const r = await fetch(`${BASE}/personas/${id}`, { method:'DELETE', headers: authHeaders() });
+  setOut(await r.json().catch(()=>({status:r.status})));
+}
+</script>
+</body>
+</html>

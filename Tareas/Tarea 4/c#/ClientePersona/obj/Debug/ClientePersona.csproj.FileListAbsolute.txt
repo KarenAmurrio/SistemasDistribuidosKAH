@@ -1,0 +1,14 @@
+C:\Users\Animetx\Desktop\Universidad\Distribuidos\Project\ClientePersona\ClientePersona\bin\Debug\ClientePersona.exe.config
+C:\Users\Animetx\Desktop\Universidad\Distribuidos\Project\ClientePersona\ClientePersona\bin\Debug\ClientePersona.exe
+C:\Users\Animetx\Desktop\Universidad\Distribuidos\Project\ClientePersona\ClientePersona\bin\Debug\ClientePersona.pdb
+C:\Users\Animetx\Desktop\Universidad\Distribuidos\Project\ClientePersona\ClientePersona\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Animetx\Desktop\Universidad\Distribuidos\Project\ClientePersona\ClientePersona\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Animetx\Desktop\Universidad\Distribuidos\Project\ClientePersona\ClientePersona\obj\Debug\ClientePersona.csproj.AssemblyReference.cache
+C:\Users\Animetx\Desktop\Universidad\Distribuidos\Project\ClientePersona\ClientePersona\obj\Debug\ClientePersona.Form1.resources
+C:\Users\Animetx\Desktop\Universidad\Distribuidos\Project\ClientePersona\ClientePersona\obj\Debug\ClientePersona.Properties.Resources.resources
+C:\Users\Animetx\Desktop\Universidad\Distribuidos\Project\ClientePersona\ClientePersona\obj\Debug\ClientePersona.csproj.GenerateResource.cache
+C:\Users\Animetx\Desktop\Universidad\Distribuidos\Project\ClientePersona\ClientePersona\obj\Debug\ClientePersona.csproj.CoreCompileInputs.cache
+C:\Users\Animetx\Desktop\Universidad\Distribuidos\Project\ClientePersona\ClientePersona\obj\Debug\ClienteP.E97C1004.Up2Date
+C:\Users\Animetx\Desktop\Universidad\Distribuidos\Project\ClientePersona\ClientePersona\obj\Debug\ClientePersona.exe
+C:\Users\Animetx\Desktop\Universidad\Distribuidos\Project\ClientePersona\ClientePersona\obj\Debug\ClientePersona.pdb
+C:\Users\Animetx\Desktop\Universidad\Distribuidos\Project\ClientePersona\ClientePersona\obj\Debug\ClientePersona.exe.config
